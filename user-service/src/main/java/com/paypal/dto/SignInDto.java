@@ -1,28 +1,20 @@
-package com.paypal.entity;
+package com.paypal.dto;
 
-import jakarta.persistence.*;
+public class SignInDto {
 
-@Entity
-@Table(name = "app_user")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
-
-    @Column(unique = true)
     private String email;
     private String password;
+    private String adminKey;
 
-    private String role;
-
-    public Long getId() {
-        return id;
+    public SignInDto() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public SignInDto(String name, String email, String password, String adminKey) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.adminKey = adminKey;
     }
 
     public String getName() {
@@ -49,11 +41,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getAdminKey() {
+        return adminKey;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAdminKey(String adminKey) {
+        this.adminKey = adminKey;
     }
 }
